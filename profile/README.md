@@ -43,8 +43,8 @@ flowchart TD
 | Repo | What it is | Language | Status | License |
 |---|---|---|---|---|
 | **[authserver](https://github.com/AuthPlane/authserver)** | Self-hosted OAuth 2.1 + MCP Authorization server. One Go binary, embedded Admin UI, PostgreSQL + Vault-backed signing for production. | Go | `v0.1.x` — production-shaped | **AGPL-3.0** |
-| **[go-sdk](https://github.com/AuthPlane/go-sdk)** | Resource-server SDK and OAuth client for Go. Adapters for the official MCP Go SDK and `net/http`. | Go | Released | Apache-2.0 |
-| **[ts-sdk](https://github.com/AuthPlane/ts-sdk)** | Resource-server SDK and OAuth client for TypeScript. Adapters for the official MCP TS SDK and FastMCP. | TypeScript | Released | Apache-2.0 |
+| **[go-sdk](https://github.com/AuthPlane/go-sdk)** | Resource-server SDK and OAuth client for Go. Adapters for the official MCP Go SDK and `net/http` — [`mark3labs/mcp-go`](https://github.com/mark3labs/mcp-go) adapter coming soon. | Go | Released | Apache-2.0 |
+| **[ts-sdk](https://github.com/AuthPlane/ts-sdk)** | Resource-server SDK and OAuth client for TypeScript. Adapters for the official MCP TS SDK and FastMCP — Hono and NestJS adapters coming soon. | TypeScript | Released | Apache-2.0 |
 | **[python-sdk](https://github.com/AuthPlane/python-sdk)** | Resource-server SDK and OAuth client for Python. Adapters for the official MCP Python SDK and FastMCP. | Python | Released | Apache-2.0 |
 | **[conformance](https://github.com/AuthPlane/conformance)** | Language-neutral YAML catalog of OAuth 2.1 conformance cases. Every SDK runs it; every assertion traces back to a catalog case. | YAML / Python tooling | Active | Apache-2.0 |
 
