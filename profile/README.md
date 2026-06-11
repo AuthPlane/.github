@@ -79,7 +79,7 @@ docker run -p 9000:9000 -p 9001:9001 \
   -e AUTHPLANE_ADMIN_API_KEY \
   -e AUTHPLANE_SESSION_SECRET \
   -v authserver-data:/data \
-  ghcr.io/authplane/authserver:latest serve
+  authplane/authserver:latest serve
 ```
 
 Open <http://localhost:9001/admin/ui/> and paste the printed API key. Then secure your MCP server with the [**Python MCP adapter**](https://github.com/AuthPlane/python-sdk/blob/main/authplane-mcp/README.md) — Go and TypeScript adapters follow the same pattern.
@@ -92,7 +92,7 @@ Open <http://localhost:9001/admin/ui/> and paste the printed API key. Then secur
 
 ## License
 
-Authplane is **dual-licensed by design**:
+- **`authserver`** — **AGPL-3.0-or-later**
+- **`go-sdk`, `ts-sdk`, `python-sdk`, `conformance`** — **Apache-2.0**
 
-- **`authserver`** → **AGPL-3.0-or-later**. The server is the value-capture point; running a modified, network-exposed copy triggers AGPL obligations. If that doesn't fit your deployment, write to [hello@authplane.ai](mailto:hello@authplane.ai).
-- **`go-sdk`, `ts-sdk`, `python-sdk`, `conformance`** → **Apache-2.0**. Embed and ship them inside your application freely — no copyleft, no contact required, patent grant included.
+Need different terms for the server? Write to [hello@authplane.ai](mailto:hello@authplane.ai).
