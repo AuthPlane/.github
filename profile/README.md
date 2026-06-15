@@ -1,4 +1,4 @@
-<h1 align="center">Authplane</h1>
+<h1 align="center">AuthPlane</h1>
 
 <p align="center"><strong>Open-source OAuth 2.1 + MCP authorization, self-hosted.</strong></p>
 
@@ -12,7 +12,7 @@
 
 ---
 
-Building an MCP server is now a one-afternoon job. Securing it isn't. You need to issue tokens, validate them, federate to your existing IdP, and let agents act on each other's behalf without losing the user behind the chain. **Authplane is the one piece of infrastructure that answers all of that** — a single Go binary on the server side, and idiomatic SDKs on the client side.
+Building an MCP server is now a one-afternoon job. Securing it isn't. You need to issue tokens, validate them, federate to your existing IdP, and let agents act on each other's behalf without losing the user behind the chain. **AuthPlane is the one piece of infrastructure that answers all of that** — a single Go binary on the server side, and idiomatic SDKs on the client side.
 
 ## The Stack
 
@@ -63,9 +63,14 @@ A consistent baseline across Go, TypeScript, and Python — so your MCP server v
 
 ## Standards in scope
 
-Authplane implements the [MCP Authorization](https://modelcontextprotocol.io) specification (**2025-11-25**) and the OAuth 2.1 ecosystem behind it. Full inventory:
+AuthPlane implements the [MCP Authorization](https://modelcontextprotocol.io) specification (**2025-11-25**) and the OAuth 2.1 ecosystem behind it.
+
+<details>
+<summary><strong>Full standards inventory</strong></summary>
 
 OAuth 2.1 · [PKCE](https://www.rfc-editor.org/rfc/rfc7636) (RFC 7636) · [DPoP](https://www.rfc-editor.org/rfc/rfc9449) (RFC 9449) · [Resource Indicators](https://www.rfc-editor.org/rfc/rfc8707) (RFC 8707) · [Protected Resource Metadata](https://www.rfc-editor.org/rfc/rfc9728) (RFC 9728) · [Dynamic Client Registration](https://www.rfc-editor.org/rfc/rfc7591) (RFC 7591) · CIMD · [AS Metadata](https://www.rfc-editor.org/rfc/rfc8414) (RFC 8414) + OIDC Discovery · [Token Exchange](https://www.rfc-editor.org/rfc/rfc8693) (RFC 8693) · [JWT Bearer](https://www.rfc-editor.org/rfc/rfc7523) (RFC 7523) · [JWT Access Tokens](https://www.rfc-editor.org/rfc/rfc9068) (RFC 9068) · [Introspection](https://www.rfc-editor.org/rfc/rfc7662) (RFC 7662) · [Revocation](https://www.rfc-editor.org/rfc/rfc7009) (RFC 7009)
+
+</details>
 
 The [conformance catalog](https://github.com/AuthPlane/conformance) is the source of truth.
 
