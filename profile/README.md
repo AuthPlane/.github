@@ -12,34 +12,9 @@
 
 ---
 
-Building an MCP server is a one-afternoon job. Securing it isn't: you need to issue tokens, validate them, federate to the IdP you already have, and let agents act on each other's behalf without losing the user behind the chain. **Authplane is the one piece of infrastructure that answers all of that** — a single Go binary on the server side, and an SDK in your language on the resource side.
+<p align="center"><img src="profile/hero.svg" alt="An MCP client calls your MCP server; the Authplane SDK inside it verifies a token issued by authserver" width="1200"></p>
 
-## How it fits together
-
-One authorization server, an SDK inside every MCP server, and the same twelve-line handshake for every client — Claude Desktop, Claude Code, MCP Inspector, or your own agent:
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant C as MCP client / agent
-    participant S as Your MCP server<br/>(+ Authplane SDK)
-    participant A as authserver
-
-    C->>S: tools/call
-    S-->>C: 401 · WWW-Authenticate resource_metadata=…
-    C->>S: GET /.well-known/oauth-protected-resource
-    S-->>C: {resource, authorization_servers: [authserver]}
-    C->>A: GET /.well-known/oauth-authorization-server
-    A-->>C: metadata · CIMD · PKCE · DPoP · iss
-    C->>A: authorize (CIMD client_id, PKCE, resource) → user logs in, consents
-    A-->>C: code · iss
-    C->>A: POST /oauth/token (+ DPoP proof)
-    A-->>C: access token · aud = your server · cnf.jkt
-    C->>S: tools/call · Authorization: DPoP <token>
-    S-->>C: result — token verified against authserver's JWKS, scope checked per tool
-```
-
-**authserver** owns steps 5–10: discovery, registration, login, consent, delegation, and the token itself. The **SDK** owns steps 2–4 and 12: the challenge, Protected Resource Metadata, and per-tool verification — five lines of code in your server. The **conformance** catalog is the language-neutral test suite both sides run against, so a server and an SDK in different languages agree on every one of those bytes.
+Building an MCP server is a one-afternoon job. Securing it isn't: you need to issue tokens, validate them, federate to the IdP you already have, and let agents act on each other's behalf without losing the user behind the chain. **Authplane is the one piece of infrastructure that answers all of that.** **authserver** issues audience-bound, DPoP-capable tokens and owns discovery, registration, consent and delegation. The **SDK** you embed in your MCP server — five lines, in your language — verifies those tokens, serves Protected Resource Metadata, and enforces scopes per tool. The **conformance** catalog is the test suite both sides run against, so a server and an SDK in different languages agree on every byte.
 
 ## Repositories
 
