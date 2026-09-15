@@ -14,31 +14,9 @@
 
 Building an MCP server is now a one-afternoon job. Securing it isn't. You need to issue tokens, validate them, federate to your existing IdP, and let agents act on each other's behalf without losing the user behind the chain. **Authplane is the one piece of infrastructure that answers all of that** — a single Go binary on the server side, and idiomatic SDKs on the client side.
 
-## The Stack
+## How the pieces fit
 
-```mermaid
-flowchart TD
-    authserver["<b>authserver</b><br/>OAuth 2.1 + MCP Authorization AS<br/><i>AGPL-3.0 · one Go binary, self-hosted</i>"]
-
-    subgraph sdks ["Resource-server SDKs · Apache-2.0 · embed and ship in your app"]
-        direction LR
-        go["<b>go-sdk</b>"]
-        ts["<b>ts-sdk</b>"]
-        py["<b>python-sdk</b>"]
-        java["<b>java-sdk</b>"]
-        cs["<b>cs-sdk</b>"]
-    end
-
-    conformance["<b>conformance</b> (catalog)<br/><i>Apache-2.0 · language-neutral source of truth</i>"]
-
-    authserver -- "issues JWTs<br/>DPoP · audience-bound" --> sdks
-    sdks -. "tested against" .-> conformance
-
-    classDef agpl fill:#fee2e2,stroke:#991b1b,color:#111
-    classDef apache fill:#dcfce7,stroke:#166534,color:#111
-    class authserver agpl
-    class go,ts,py,java,cs,conformance apache
-```
+**authserver** is the authorization server: it issues audience-bound, DPoP-capable JWTs and owns discovery, registration, consent and delegation. The **SDKs** are what you embed in your MCP server, one per language, to validate those tokens, serve Protected Resource Metadata, and enforce scopes per tool. The **conformance** catalog is the language-neutral test suite both sides run against, so a server and an SDK written in different languages agree on the wire.
 
 ## Repositories
 
