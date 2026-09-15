@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="An agent calls your MCP server; the Authplane SDK inside it validates a token issued by authserver">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f0a1f"/>
+      <stop offset="1" stop-color="#1b1233"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c4b5fd"/>
+    </marker>
+    <style>
+      .label { font: 600 19px/1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f5f3ff; }
+      .sub   { font: 400 13px/1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #c4b5fd; }
+      .wire  { font: 500 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; fill: #ddd6fe; }
+      .card  { fill: #17112b; stroke: #3b2f63; stroke-width: 1.5; }
+      .cardhi{ fill: #221743; stroke: url(#accent); stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#2a1f4d" stroke-width="1" opacity="0.5">
+    <path d="M0 85 H1200 M0 170 H1200 M0 255 H1200"/>
+  </g>
+
+  <!-- Agent -->
+  <g transform="translate(50,110)">
+    <rect class="card" width="250" height="120" rx="18"/>
+    <circle cx="50" cy="60" r="22" fill="none" stroke="#c4b5fd" stroke-width="2.5"/>
+    <circle cx="42" cy="55" r="3" fill="#c4b5fd"/><circle cx="58" cy="55" r="3" fill="#c4b5fd"/>
+    <path d="M40 68 q10 8 20 0" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M50 30 v8 M34 42 h-8 M66 42 h8" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+    <text class="label" x="84" y="54">MCP client</text>
+    <text class="sub" x="84" y="80">Claude · Inspector · yours</text>
+  </g>
+
+  <!-- Your MCP server -->
+  <g transform="translate(450,90)">
+    <rect class="cardhi" width="300" height="160" rx="18"/>
+    <rect x="28" y="34" width="44" height="12" rx="3" fill="#7c3aed"/>
+    <rect x="28" y="52" width="44" height="12" rx="3" fill="#5b3fb0"/>
+    <rect x="28" y="70" width="44" height="12" rx="3" fill="#3f2d80"/>
+    <text class="label" x="92" y="52">Your MCP server</text>
+    <text class="sub" x="92" y="78">Go · TS · Python · Java · C#</text>
+    <rect x="28" y="104" width="244" height="30" rx="8" fill="#0f0a1f" stroke="#7c3aed" stroke-width="1.5"/>
+    <text class="wire" x="42" y="124">+ Authplane SDK · 5 lines</text>
+  </g>
+
+  <!-- authserver -->
+  <g transform="translate(900,110)">
+    <rect class="card" width="250" height="120" rx="18"/>
+    <g transform="translate(30,32)" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 4 L40 12 V30 C40 44 30 52 22 56 C14 52 4 44 4 30 V12 Z"/>
+      <path d="M14 30 l6 6 l12 -14"/>
+    </g>
+    <text class="label" x="84" y="54">authserver</text>
+    <text class="sub" x="84" y="80">issue · consent · delegate</text>
+  </g>
+
+  <!-- wires -->
+  <g stroke="#c4b5fd" stroke-width="2" fill="none">
+    <path d="M302 150 H446" marker-end="url(#arrow)"/>
+    <path d="M448 200 H304" marker-end="url(#arrow)" stroke-dasharray="6 6" opacity="0.7"/>
+    <path d="M752 150 H896" marker-end="url(#arrow)"/>
+    <path d="M898 200 H754" marker-end="url(#arrow)"/>
+  </g>
+  <text class="wire" x="375" y="138" text-anchor="middle">tools/call</text>
+  <text class="wire" x="375" y="222" text-anchor="middle">401 → discover</text>
+  <text class="wire" x="825" y="138" text-anchor="middle">verify · JWKS</text>
+  <text class="wire" x="825" y="222" text-anchor="middle">token · aud · DPoP</text>
+
+  <!-- token glyph in flight -->
+  <g transform="translate(600,290)" filter="url(#glow)">
+    <rect x="-112" y="-16" width="224" height="32" rx="16" fill="url(#accent)"/>
+    <text x="0" y="5" text-anchor="middle" style="font:600 13px -apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#0f0a1f">MCP Authorization 2026-07-28</text>
+  </g>
+</svg>
