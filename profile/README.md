@@ -14,7 +14,11 @@
 
 <p align="center"><img src="hero.svg" alt="An MCP client calls your MCP server; the Authplane SDK inside it verifies a token issued by authserver" width="1200"></p>
 
-Building an MCP server is a one-afternoon job. Securing it isn't: you need to issue tokens, validate them, federate to the IdP you already have, and let agents act on each other's behalf without losing the user behind the chain. **Authplane is the one piece of infrastructure that answers all of that.** **authserver** issues audience-bound, DPoP-capable tokens and owns discovery, registration, consent and delegation. The **SDK** you embed in your MCP server — five lines, in your language — verifies those tokens, serves Protected Resource Metadata, and enforces scopes per tool. The **conformance** catalog is the test suite both sides run against, so a server and an SDK in different languages agree on every byte.
+Building an MCP server is a one-afternoon job. Securing it isn't — and **Authplane is the one piece of infrastructure that does it**, in three parts:
+
+- **authserver** — the authorization server. Issues audience-bound, DPoP-capable tokens; owns discovery, registration, login, consent, and agent-to-agent delegation. One Go binary, self-hosted.
+- **The SDKs** — five lines in your MCP server, in your language. Verify the token, serve Protected Resource Metadata, enforce scopes per tool.
+- **The conformance catalog** — the test suite both sides run against, so a server and an SDK written in different languages agree on every byte.
 
 ## Repositories
 
