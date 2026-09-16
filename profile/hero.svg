@@ -34,10 +34,13 @@
   <!-- Agent -->
   <g transform="translate(50,110)">
     <rect class="card" width="250" height="120" rx="18"/>
-    <circle cx="50" cy="60" r="22" fill="none" stroke="#c4b5fd" stroke-width="2.5"/>
-    <circle cx="42" cy="55" r="3" fill="#c4b5fd"/><circle cx="58" cy="55" r="3" fill="#c4b5fd"/>
-    <path d="M40 68 q10 8 20 0" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M50 30 v8 M34 42 h-8 M66 42 h8" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- robot head (Lucide "bot", ISC) -->
+    <g transform="translate(22,32) scale(2.3)" fill="none" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 8V4H8"/>
+      <rect x="4" y="8" width="16" height="12" rx="2"/>
+      <path d="M2 14h2"/><path d="M20 14h2"/>
+      <path d="M15 13v2"/><path d="M9 13v2"/>
+    </g>
     <text class="label" x="84" y="54">MCP client</text>
     <text class="sub" x="84" y="80">Claude · Inspector · yours</text>
   </g>
