@@ -34,12 +34,12 @@
   <!-- Agent -->
   <g transform="translate(50,110)">
     <rect class="card" width="250" height="120" rx="18"/>
-    <!-- terminal window: the agent's prompt -->
-    <g transform="translate(26,34)" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="48" height="48" rx="7"/>
-      <path d="M2 15 H50"/>
-      <path d="M13 26 l8 7 l-8 7"/>
-      <path d="M26 40 h12"/>
+    <!-- robot head (Lucide "bot", ISC) -->
+    <g transform="translate(22,32) scale(2.3)" fill="none" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 8V4H8"/>
+      <rect x="4" y="8" width="16" height="12" rx="2"/>
+      <path d="M2 14h2"/><path d="M20 14h2"/>
+      <path d="M15 13v2"/><path d="M9 13v2"/>
     </g>
     <text class="label" x="84" y="54">MCP client</text>
     <text class="sub" x="84" y="80">Claude · Inspector · yours</text>
