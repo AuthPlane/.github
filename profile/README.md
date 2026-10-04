@@ -24,7 +24,7 @@ Building an MCP server is a one-afternoon job. Securing it isn't — and **Authp
 
 | Repo | What it is | Language | Status | License |
 |---|---|---|---|---|
-| **[authserver](https://github.com/AuthPlane/authserver)** | Self-hosted OAuth 2.1 + MCP Authorization server. One Go binary, embedded Admin UI, PostgreSQL + Vault-backed signing for production. | Go | `v0.2.0` — MCP Authorization 2026-07-28 | **AGPL-3.0** |
+| **[authserver](https://github.com/AuthPlane/authserver)** | Self-hosted OAuth 2.1 + MCP Authorization server. One Go binary, embedded Admin UI, PostgreSQL + Vault-backed signing for production. | Go | `v0.2.2` — MCP Authorization 2026-07-28 | **AGPL-3.0** |
 | **[go-sdk](https://github.com/AuthPlane/go-sdk)** | Resource-server SDK and OAuth client for Go. Adapters for the official MCP Go SDK, [`mark3labs/mcp-go`](https://github.com/mark3labs/mcp-go), and `net/http`. | Go | `v0.3.0` | Apache-2.0 |
 | **[ts-sdk](https://github.com/AuthPlane/ts-sdk)** | Resource-server SDK and OAuth client for TypeScript. Adapters for the official MCP TS SDK, FastMCP, Hono, and NestJS. | TypeScript | `v0.4.0` | Apache-2.0 |
 | **[python-sdk](https://github.com/AuthPlane/python-sdk)** | Resource-server SDK and OAuth client for Python. Adapters for the official MCP Python SDK and FastMCP. | Python | `v0.4.0` | Apache-2.0 |
@@ -58,6 +58,7 @@ The [conformance catalog](https://github.com/AuthPlane/conformance) is the sourc
 ```bash
 export AUTHPLANE_ADMIN_API_KEY="$(openssl rand -hex 32)"
 export AUTHPLANE_SESSION_SECRET="$(openssl rand -hex 32)"
+echo "Save this — it's your Admin UI login: $AUTHPLANE_ADMIN_API_KEY"
 
 docker run -p 9000:9000 -p 9001:9001 \
   -e AUTHPLANE_ADMIN_API_KEY \
